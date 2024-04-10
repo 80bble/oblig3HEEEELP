@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpMe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+<!-- Basics -->
+
+
+    <label for="choosefilm">Velg film</label>
+    <select id="choosefilm">
+        <option value="film">Velg film her</option>
+        <option value="Dungeons & Dragons - The Movie">Dungeons & Dragons - The Movie</option>
+        <option value="Star Wars - Return of the Jedi">Star Wars - Return of the Jedi</option>
+        <option value="Juniper and the fae kingdom">Juniper and the fae kingdom</option>
+        <option value="Sophie's world">Sophie's world</option>
+    </select>
+
+    <label for="ticket_numb" style="display: block;">Antall</label>
+    <input type="number" id="ticket_numb">
+    <div id="ticket_test" style="margin-left: 10px; color: red;"></div>
+
+    <label for="navn_boks">Navn:</label>
+    <input type="text" id="navn_boks">
+    <div id="navn_test" style="margin-left: 10px; color: red;"></div>
+
+    <label for="etternavn_boks">Etternavn</label>
+    <input type="text" id="etternavn_boks">
+    <div id="etternavn_test" style="margin-left: 10px; color: red;"></div>
+
+    <label for="telefon_boks">Telefon:</label>
+    <input type="number" id="telefon_boks" pattern="[0-9]{8}">
+    <div id="telefon_test" style="margin-left: 10px; color: red;"></div>
+
+    <label for="epost_boks">E-post</label>
+    <input type="text" id="epost_boks">
+    <div id="epost_test" style="margin-left: 10px; color: red;"></div>
+
+    <h2>Billetter</h2> <!--sendes til post-->
+    <button onclick="sendTicketInfo_java()">Send til java</button>
+    <p id="Info_java"></p>
+
+    <h2> Get list of receipts from java endpoint </h2> <!---->
+    <button onclick="get_a_list_of_receipts_js()">Hent billett</button>
+    <p id="receipts_js"></p>
+
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>
+    <!---Forrige knapper-->
+    <!--
+    <h2>Billetter</h2>
+    <button onclick="SendTicketInfo()">Send til server</button>
+    <div id="superdiv"></div>
+
+    <h2> Get list of receipts from java endpoint </h2>
+    <button onclick="get_a_list_of_receipts()">Hent billett</button>
+    <p id="receiptz"></p>
+-->
+    <!--<button onClick="fjernNavn()">Slett billett</button>
+    <div id="slettdiv"></div>-->
+
+    <!--printNavn()-->
