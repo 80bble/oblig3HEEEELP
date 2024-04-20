@@ -8,16 +8,24 @@
 </head>
 <body>
 <!---JDBC URL: jdbc:h2:mem:testdb --->
-<!--<main class="col-sm-12 col-md-12" style="background-color: rosybrown">-->
-    <div class="v">
-        <h1>Bestilling av kinobilletter</h1></div>
+<div class="col-sm-12 col-md-12" style="background-color: rosybrown">
+
+        <h1>Cinema ticket order</h1></div>
+<style>
+    h1 {
+        font-family: 'Georgia', serif;
+        font-size: 40px;  // Provides good readability
+    color: #333;  // Soft black for text
+        text-shadow: 2px 2px 4px #ff0000;  // Red shadow for dramatic effect
+    }
+</style>
         <div class="col-sm-12 col-md-12"></div> <!--style="background-image:
     url('imagus/cine1.jpg'); background-size:
     cover; color: royalblue">-->
 
          <div class="col-sm-5 col-md-3">
 
-             <label for="choosefilm">Velg film</label>
+             <label for="choosefilm">Choose film</label>
              <select id="choosefilm">
                  <option value="nullfilm">Please select a film</option>
                  <option value="Dungeons & Dragons - The Movie">Dungeons & Dragons - The Movie</option>
@@ -28,41 +36,41 @@
              <div id="filmValidationMessage" style="color: red;"></div>
 
 
-             <label for="ticket_numb" style="display: block;">Antall</label>
+             <label for="ticket_numb" style="display: block;">Amount</label>
         <input type="number" id="ticket_numb">
         <div id="ticket_test" style="margin-left: 10px; color: red;"></div>
 
-        <label for="navn_boks">Navn:</label>
+        <label for="navn_boks">Name:</label>
         <input type="text" id="navn_boks">
         <div id="navn_test" style="margin-left: 10px; color: red;"></div>
 
-        <label for="etternavn_boks">Etternavn</label>
+        <label for="etternavn_boks">Surname</label>
         <input type="text" id="etternavn_boks">
         <div id="etternavn_test" style="margin-left: 10px; color: red;"></div>
 
-        <label for="telefon_boks">Telefon:</label>
+        <label for="telefon_boks">Phone:</label>
         <input type="number" id="telefon_boks" pattern="[0-9]{8}">
         <div id="telefon_test" style="margin-left: 10px; color: red;"></div>
 
-        <label for="epost_boks">E-post</label>
+        <label for="epost_boks">E-Mail</label>
         <input type="text" id="epost_boks">
         <div id="epost_test" style="margin-left: 10px; color: red;"></div>
     </div>
 
         <div class="col-sm-12 col-md-12">
-        <h2>Billetter</h2> <!--sendes til post-->
-        <button onclick="sendTicketInfo_java()">Send til java</button>
+         <!--sendes til post-->
+        <button class='btn btn-primary' onclick="sendTicketInfo_java()">Order now</button> <!--Send to java-->
         <p id="Info_java"></p>
-
-        <h2> Get list of receipts from java endpoint </h2> <!---->
-        <button onclick="get_a_list_of_receipts_js()">Hent billett</button>
-        <p id="receipts_js"></p>
-
-Slett Alle billetter:
-
+            <!--Get list of receipts from java endpoint-->
+            <button class='btn btn-info' onclick="get_a_list_of_receipts_js()">View tickets</button>
+            <p id="receipts_js"></p>
             <div id="billyene"></div>
-            <button onClick="deleteALL_tickets()">Slett alle billetter</button>
-    </div>
+            <button class='btn btn-danger' onClick="deleteALL_tickets()">Delete all tickets</button>
+
+
+
+
+        </div>
 
 
 
@@ -71,7 +79,11 @@ Slett Alle billetter:
 The fish drawings are 100% mine though 🐟*/-->
     <div class="col-sm-12 col-md-12">
 
-<h2>Wisdom</h2>
+<h2>Wisdom</h2> <style>
+        h2 {
+            font-family: 'EB Garamond', serif;
+        }
+    </style>
 <label id="fesh"></label>
 <button id="fiskeknapp" onclick="fisk()">Disco fish</button>
     </div>
@@ -125,11 +137,12 @@ The fish drawings are 100% mine though 🐟*/-->
     }
 </style>
 
-    <script src="index.js"></script>
+    <script src="Index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    </div>
+
 </body>
 </html>
+
     <!---Forrige knapper-->
     <!--
     <h2>Billetter</h2>

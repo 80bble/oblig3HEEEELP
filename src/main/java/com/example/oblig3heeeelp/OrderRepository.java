@@ -23,13 +23,13 @@ public class OrderRepository {
 private JdbcTemplate db;
 
     public void lagreInfo (Ticket nybillett){
-        String sql ="INSERT INTO TICKET(film, antall, navn, etternavn, telefon, epost) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql ="INSERT INTO TICKET (film, antall, navn, etternavn, telefon, epost) VALUES (?, ?, ?, ?, ?, ?)";
         db.update(sql, nybillett.getFilm(), nybillett.getAntall(),nybillett.getNavn(),
                 nybillett.getEtternavn(),nybillett.getTelefon(),nybillett.getEpost());
     }
 
 public List <Ticket> hentAllInfo(){
-      String sql = "SELECT * FROM TICKET";
+      String sql = "SELECT * FROM TICKET ORDER BY etternavn ASC";
     List<Ticket> alle_billetter = db.query(sql, new BeanPropertyRowMapper<Ticket>(Ticket.class));
       return alle_billetter;
 }

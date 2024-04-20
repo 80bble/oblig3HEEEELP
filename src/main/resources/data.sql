@@ -1,4 +1,7 @@
+/*INSERT INTO TICKET (film, antall, navn, etternavn, telefon, epost)
+VALUES ('Sophies World',3, 'Per', 'Hansen',12345678,'Per_1@ymail.com' );
 INSERT INTO TICKET (film, antall, navn, etternavn, telefon, epost)
-VALUES ('Sophies World',3, 'Per Hansen','Osloveien 82',12345678,'Per_1@gmail.com' );
+VALUES ( 'Star Wars - Return of the Jedi',5, 'Pernille', 'Johansen',87654321,'Pernille_67@gmail.com' );
 INSERT INTO TICKET (film, antall, navn, etternavn, telefon, epost)
-VALUES ( 'Sophies World',5, 'Pernille Johansen','Bergenveien 12',87654321,'Pernille_67@gmail.com' );
+VALUES ( 'Juniper and the fae kingdom',4, 'Joanne', 'Norli',34756821,'Jornli@hotmail.com' );
+ */

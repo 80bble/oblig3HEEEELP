@@ -22,6 +22,6 @@ function changeOneTicket(){
         epost:$("#epost").val()
     }
     $.post("/receipts_js", ticket,function (){
-        window.location.href='index.html';
+        window.location.href='Index.html';
     });
 }

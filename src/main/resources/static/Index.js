@@ -1,5 +1,6 @@
+// Function to send ticket information to the server
 function sendTicketInfo_java() {
-    let isValid = true;  // A flag to determine if the form is valid
+    let isValid = true; // A flag to determine if the form is valid
 
     const filmSelect = document.getElementById("choosefilm");
     const film = filmSelect.value;
@@ -61,13 +62,14 @@ function sendTicketInfo_java() {
         console.log(myticket); // Log the ticket data for debugging
         $.post("/lagre", myticket, function(data) {
             console.log("Data saved successfully");
-            clearForm();  // Clear the form fields after successful data submission
+            clearForm(); // Clear the form fields after successful data submission
         }).fail(function() {
             console.error("Failed to save data");
         });
     }
 }
 
+// Function to clear the form
 function clearForm() {
     document.getElementById("choosefilm").value = "nullfilm";
     document.getElementById("ticket_numb").value = "";
@@ -76,58 +78,65 @@ function clearForm() {
     document.getElementById("telefon_boks").value = "";
     document.getElementById("epost_boks").value = "";
 }
-function get_a_list_of_receipts_js(){
-    $.get('/receipts_js', function (data){
+
+// Function to fetch and display tickets
+function get_a_list_of_receipts_js() {
+    $.get('/receipts_js', function(data) {
         console.log(data);
         let ticketALL = data;
-        if (ticketALL.length === 0){
-            $("#receipts_js").html("Det er ingen bestilte biletter");
+        if (ticketALL.length === 0) {
+            $("#receipts_js").html("There are no tickets saved");
             return;
         }
-
-        let ut= "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th><th>Delete</th></tr>";
-        for(const ticket of ticketALL){
-            ut += `<tr id="ticket-row-${ticket.id}">` +
-                `<td>${ticket.film}</td>` +
-                `<td>${ticket.antall}</td>` +
-                `<td>${ticket.navn}</td>` +
-                `<td>${ticket.etternavn}</td>` +
-                `<td>${ticket.telefon}</td>` +
-                `<td>${ticket.epost}</td>` +
-                "<td> <a class='btn btn-primary' href='changeTicket.html?id="+ticket.id+"'>Changez</a></td>" +
-                "<td> <button class='btn btn-danger' onclick='slettEN("+ticket.id+")'>deletez</button></td>" +
-                `</tr>`;
-        }
-        ut += "</table>";
-        $('#receipts_js').html(ut);
+        updateTable(ticketALL);
     });
 }
 
-/*Slett en*/
+// Function to update the table with ticket data
+function updateTable(ticketALL) {
+    let ut = `<table class="table table-striped table-hover">`;
+    ut += `<thead class="thead-dark">`;
+    ut += `<tr><th>Film</th><th>Antall</th><th>Navn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th><th>Actions</th></tr>`;
+    ut += `</thead><tbody>`;
+    for (const ticket of ticketALL) {
+        ut += `<tr id="ticket-row-${ticket.id}">` +
+            `<td>${ticket.film}</td>` +
+            `<td>${ticket.antall}</td>` +
+            `<td>${ticket.navn}</td>` +
+            `<td>${ticket.etternavn}</td>` +
+            `<td>${ticket.telefon}</td>` +
+            `<td>${ticket.epost}</td>` +
+            `<td><a class='btn btn-primary' href='changeTicket.html?id=${ticket.id}'>Change</a>` +
+            `<button class='btn btn-danger' onclick='slettEN(${ticket.id})'>Delete</button></td>` +
+            `</tr>`;
+    }
+    ut += `</tbody></table>`;
+    $('#receipts_js').html(ut);
+}
+
+// Function to delete a single ticket
 function slettEN(id) {
     $.ajax({
         url: "/slettEN?id=" + id,
         type: "DELETE",
-        success: function () {
+        success: function() {
             console.log('Billett med id ' + id + " ble slettet.");
-            // Remove the row from the HTML table
             $(`#ticket-row-${id}`).remove();
         }
     });
 }
 
+// Function to delete all tickets
 function deleteALL_tickets() {
     $.ajax({
         url: "/deleteAllTickets",
         type: "DELETE",
-        success: function () {
+        success: function() {
             console.log("All tickets deleted successfully");
-
-            $('#receipts_js').html("");
+            $('#receipts_js').html(""); // Clears the table
         }
     });
 }
-
 /*function get_a_list_of_receipts_js(){
     $.get("/receipts_js", function(data){
         let dynamicHtml= "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th><th>Delete</th></tr>";
