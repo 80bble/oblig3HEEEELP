@@ -1,7 +1,7 @@
 /*Disco-music gjør det om til loop*/
 /*Attribution: name and url*/
 /*https://freesound.org/people/XHALE303/sounds/528849/*/
-/*Tutorial*/
+/*Tutorial notes*/
 /*https://www.youtube.com/watch?v=ZFqtk0Tsnsc*/
 
 /*Canvas (background) size*/
