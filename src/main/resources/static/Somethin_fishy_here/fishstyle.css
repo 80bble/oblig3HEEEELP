@@ -1,0 +1,68 @@
+*{
+
+}
+#lefishe{
+    background-color: antiquewhite;
+    padding-top: 0.5rem;
+    scale: 85%;
+}
+
+#controls>p{
+    font-size: 60px;
+}
+
+#canvas1{
+
+    background-image: url("../imagus/pondrock.jpg");
+    z-index: 1;
+
+}
+
+#container2 { /*lights*/
+    position: relative;
+    width: 400px; /* Match the canvas size or set to fit your content */
+    height: 400px; /* Match the canvas size or set to fit your content */
+}
+
+#canvas1, #disco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10%; /*round corners*/
+}
+
+@keyframes smoothColorChange {
+    0% { background: rgba(255, 0, 0, 0.7); }
+    25% { background: rgba(120, 232, 120, 0.7); }
+    50% { background: rgba(0, 120, 255, 0.7); }
+    75% { background: rgba(255, 255, 87, 0.7); }
+    100% { background: rgba(209, 0, 255, 0.7); }
+}
+
+#disco {
+    transition: background 1s ease;
+    width: 600px;
+    height: 600px;
+
+    z-index: 2; /* Ensures disco appears above the canvas */
+    animation: smoothColorChange 9s infinite;
+}
+#bob{
+
+}
+h2{
+    padding-left: 10px;
+    margin-left: 150px;
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+    color: darkorchid;
+}
+p{
+    padding-left: 20px;
+    margin-left: 400px;
+    font-family: "Comic Sans MS";
+    font-size: 18px;
+    color: darkcyan;
+
+
+}

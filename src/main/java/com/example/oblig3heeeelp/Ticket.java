@@ -1,4 +1,11 @@
 package com.example.oblig3heeeelp;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class Ticket  {
     private String film;
@@ -7,70 +14,21 @@ public class Ticket  {
     private String etternavn;
     private int telefon;
     private String epost;
+    private Long id;
 
 
-    public Ticket(){}
-    public Ticket(String film, int antall, String navn, String etternavn, int telefon, String epost) {
+    public Ticket( String film, int antall, String navn, String etternavn, int telefon, String epost) {
+
         this.film = film;
         this.antall = antall;
         this.navn = navn;
         this.etternavn = etternavn;
         this.telefon = telefon;
         this.epost = epost;
-
     }
-
-    public String getFilm() {
-        return film;
-    }
-
-    public void setFilm(String film) {
-        this.film = film;
-    }
-
-    public int getAntall() {
-        return antall;
-    }
-
-    public void setAntall(int antall) {
-        this.antall = antall;
-    }
-
-    public String getNavn() {
-        return navn;
-    }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
-    public String getEtternavn() {
-        return etternavn;
-    }
-
-    public void setEtternavn(String etternavn) {
-        this.etternavn = etternavn;
-    }
-
-    public int getTelefon() {
-        return telefon;
-    }
-
-    public void setTelefon(int telefon) {
-        this.telefon = telefon;
-    }
-
-    public String getEpost() {
-        return epost;
-    }
-
-    public void setEpost(String epost) {
-        this.epost = epost;
-    }
-
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "Ticket{"+
                 "film='" + film + '\'' +
                 ", antall=" + antall +
                 ", navn='" + navn + '\'' +
@@ -78,5 +36,6 @@ public class Ticket  {
                 ", telefon=" + telefon +
                 ", epost='" + epost + '\'' +
                 '}';
-    }
+
+}
 }
