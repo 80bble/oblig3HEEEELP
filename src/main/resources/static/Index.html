@@ -4,86 +4,75 @@
     <meta charset="UTF-8">
     <title>HelpMe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Stylesheet2.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet2.css">
 </head>
 <body>
-<!---JDBC URL: jdbc:h2:mem:testdb --->
-<div class="col-sm-12 col-md-12" style="background-color: rosybrown">
-
-        <h1>Cinema ticket order</h1></div>
-<style>
-    h1 {
-        font-family: 'Georgia', serif;
-        font-size: 40px;  // Provides good readability
-    color: #333;  // Soft black for text
-        text-shadow: 2px 2px 4px #ff0000;  // Red shadow for dramatic effect
-    }
-</style>
-        <div class="col-sm-12 col-md-12"></div> <!--style="background-image:
-    url('imagus/cine1.jpg'); background-size:
-    cover; color: royalblue">-->
-
-         <div class="col-sm-5 col-md-3">
-
-             <label for="choosefilm">Choose film</label>
-             <select id="choosefilm">
-                 <option value="nullfilm">Please select a film</option>
-                 <option value="Dungeons & Dragons - The Movie">Dungeons & Dragons - The Movie</option>
-                 <option value="Star Wars - Return of the Jedi">Star Wars - Return of the Jedi</option>
-                 <option value="Juniper and the fae kingdom">Juniper and the fae kingdom</option>
-                 <option value="Sophie's world">Sophie's world</option>
-             </select>
-             <div id="filmValidationMessage" style="color: red;"></div>
-
-
-             <label for="ticket_numb" style="display: block;">Amount</label>
-        <input type="number" id="ticket_numb">
-        <div id="ticket_test" style="margin-left: 10px; color: red;"></div>
-
-        <label for="navn_boks">Name:</label>
-        <input type="text" id="navn_boks">
-        <div id="navn_test" style="margin-left: 10px; color: red;"></div>
-
-        <label for="etternavn_boks">Surname</label>
-        <input type="text" id="etternavn_boks">
-        <div id="etternavn_test" style="margin-left: 10px; color: red;"></div>
-
-        <label for="telefon_boks">Phone:</label>
-        <input type="number" id="telefon_boks" pattern="[0-9]{8}">
-        <div id="telefon_test" style="margin-left: 10px; color: red;"></div>
-
-        <label for="epost_boks">E-Mail</label>
-        <input type="text" id="epost_boks">
-        <div id="epost_test" style="margin-left: 10px; color: red;"></div>
-    </div>
-
-        <div class="col-sm-12 col-md-12">
-         <!--sendes til post-->
-        <button class='btn btn-primary' onclick="sendTicketInfo_java()">Order now</button> <!--Send to java-->
-        <p id="Info_java"></p>
-            <!--Get list of receipts from java endpoint-->
-            <button class='btn btn-info' onclick="get_a_list_of_receipts_js()">View tickets</button>
-            <p id="receipts_js"></p>
-            <div id="billyene"></div>
-            <button class='btn btn-danger' onClick="deleteALL_tickets()">Delete all tickets</button>
-
-
-
-
+<section class="container">
+    <div class="row" style="background-image: url('imagus/cine1.jpg'); background-size: cover;">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center" style="background-color: black">
+                <h1>Cinema ticket order</h1>
+            </div>
         </div>
 
+        <section class="col-sm-5 col-sm-offset-3 text-center">
+            <label for="choosefilm">Choose film</label>
+            <select id="choosefilm">
+                <option value="nullfilm">Please select a film</option>
+                <option value="Dungeons & Dragons - The Movie">Dungeons & Dragons - The Movie</option>
+                <option value="Star Wars - Return of the Jedi">Star Wars - Return of the Jedi</option>
+                <option value="Juniper and the fae kingdom">Juniper and the fae kingdom</option>
+                <option value="Sophie's world">Sophie's world</option>
+            </select>
+            <div id="filmValidationMessage" style="color: #ffffff; text-shadow: 1px 1px 2px black;"></div>
+
+            <label for="ticket_numb">Amount</label>
+            <input type="number" id="ticket_numb">
+            <div id="ticket_test" style="margin-left: 10px; color: white; text-shadow: 1px 1px 2px black;"></div>
+
+            <label for="navn_boks">Name:</label>
+            <input type="text" id="navn_boks">
+            <div id="navn_test" style="margin-left: 10px; color: white; text-shadow: 1px 1px 2px black;"></div>
+
+            <label for="etternavn_boks">Surname</label>
+            <input type="text" id="etternavn_boks">
+            <div id="etternavn_test" style="margin-left: 10px; color: white; text-shadow: 1px 1px 2px black;"></div>
+
+            <label for="telefon_boks">Phone:</label>
+            <input type="number" id="telefon_boks" pattern="[0-9]{8}">
+            <div id="telefon_test" style="margin-left: 10px; color: white; text-shadow: 1px 1px 2px black;"></div>
+
+            <label for="epost_boks">E-Mail</label>
+            <input type="text" id="epost_boks">
+            <div id="epost_test" style="margin-left: 10px; color: white; text-shadow: 1px 1px 2px black;"></div>
+        </section>
+    </div>
+
+    <section class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="btn-group">
+            <button class='btn btn-primary' onclick="sendTicketInfo_java()">Order now</button>
+            <button class='btn btn-info' onclick="get_a_list_of_receipts_js()">View tickets</button>
+            <button class='btn btn-danger' onClick="deleteALL_tickets()">Delete all tickets</button>
+            <button onclick="EditTick()">click</button>
+        </div>
+        <p id="Info_java"></p>
+        <p id="receipts_js"></p>
+        <div id="billyene"></div>
+    </section>
+</section>
+
+<div class="col-sm-6 col-sm-offset-3 text-center">
+    <div class="row">
+        <div class="row">
 
 
-<!---Discofish: Just for fun ✨
-/*Tutorials, AI and plenty of patience - I'm not smart enough 🙇
-The fish drawings are 100% mine though 🐟*/-->
-    <div class="col-sm-12 col-md-12">
+        <!---Discofish: Just for fun ✨
+        /*Tutorials, AI and plenty of patience - I'm not smart enough 🙇
+        The fish drawings are 100% mine though 🐟*/-->
+        <div class="col-sm-6 col-sm-offset-3 text-center">
 
-<h2>Wisdom</h2> <style>
-        h2 {
-            font-family: 'EB Garamond', serif;
-        }
-    </style>
+<h2>Wisdom</h2>
+
 <label id="fesh"></label>
 <button id="fiskeknapp" onclick="fisk()">Disco fish</button>
     </div>
@@ -98,50 +87,23 @@ The fish drawings are 100% mine though 🐟*/-->
     <source src="discoMusic.mp3" type="audio/mp3">
 </audio>
 
-<script>
-    function fisk() {
-        const iframe = document.getElementById('fishAnimation');
-        const audio =document.getElementById('song');
-
-        if(iframe.style.display==='none'){
-            iframe.style.display = 'block';
-
-            window.addEventListener('click',()=>{
-                document.getElementById("song").play();
-        });
-        }
-        else {iframe.style.display = 'none';
-            window.addEventListener('click',()=>{
-                document.getElementById("song").pause();
-                audio.currentTime = 0;
-        });
-
-    }
-    }
-
-</script>
-
-
-
-<style>
-    #fiskeknapp{
-        background-image: url("https://images.saymedia-content.com/.image/t_share/MTc0NDU4NjU5NTc1NzAzMTc0/how-to-care-for-goldfish.jpg");
-        background-size: cover;
-        background-position: center;
-        color: white;
-        font-weight: bold;
-        font-family: Rockwell;
-        height: 60px;
-        width: 90px;
-        border-radius: 50%;
-    }
-</style>
-
     <script src="Index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    </div>
+</div>
 </body>
 </html>
+<!--
+
+
+
+        /*Discofish: Just for fun ✨
+        /*Tutorials, AI and plenty of patience - I'm not smart enough 🙇
+        The fish drawings are 100% mine though 🐟*/-->
+
+
+
+
 
     <!---Forrige knapper-->
     <!--

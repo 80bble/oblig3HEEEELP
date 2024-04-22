@@ -1,7 +1,28 @@
 /*notes*/
+h1{
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+color: #e7e0e0;
+text-shadow: 2px 2px 4px #0a0101;
+}
+
+h2 {
+    font-family: 'EB Garamond', serif;
+}
 
 .ut th, .ut td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
+}
+#fiskeknapp{
+    background-image: url("https://images.saymedia-content.com/.image/t_share/MTc0NDU4NjU5NTc1NzAzMTc0/how-to-care-for-goldfish.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-weight: bold;
+    font-family: Rockwell;
+    height: 60px;
+    width: 90px;
+    border-radius: 50%;
 }

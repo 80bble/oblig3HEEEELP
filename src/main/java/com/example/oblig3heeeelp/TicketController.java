@@ -20,6 +20,14 @@ public class TicketController {
 
     }
 
+    @PostMapping("/updateTick")
+    public String updateONETick(Ticket myticket){
+        rep.updateONETick(myticket);
+        return "updated";
+
+
+    }
+
     @GetMapping("/receipts_js")
         public List <Ticket> receipts_js(){
         return rep.hentAllInfo();
@@ -32,14 +40,16 @@ public class TicketController {
                 ResponseEntity.ok("Deleted") :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ticket not found");
     }
+
     @DeleteMapping("/deleteAllTickets")
     public ResponseEntity<String> deleteAllTickets() {
         int deletedRows = rep.deleteAllTickets();
         return deletedRows >0?
                 ResponseEntity.ok("Deleted") :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ticket not found");
-
     }
+
+
 }
     /*@GetMapping("/slettEN?id=")
 
