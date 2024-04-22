@@ -28,6 +28,10 @@ private JdbcTemplate db;
                 nybillett.getEtternavn(),nybillett.getTelefon(),nybillett.getEpost());
     }
 
+    /*public Ticket findById(long id){
+        return db.queryForObject("SELECT * FROM TICKET where id=?", new TicketRowMapper(), id);
+    }*/
+
 public List <Ticket> hentAllInfo(){
       String sql = "SELECT * FROM TICKET ORDER BY etternavn ASC";
     List<Ticket> alle_billetter = db.query(sql, new BeanPropertyRowMapper<Ticket>(Ticket.class));
@@ -41,4 +45,11 @@ public List <Ticket> hentAllInfo(){
         String sql = "DELETE FROM TICKET"; // SQL to delete all rows in TICKET table
         return db.update(sql); // Execute deletion
     }
-}
+    public int updateONETick (Ticket myticket){
+        String sql = "UPDATE myticket SET film = ?, antall = ?, navn= ?, etternavn= ?, telefon= ?, epost = ?";
+        return db.update(sql,myticket.getFilm(),myticket.getNavn(),myticket.getEtternavn(),myticket.getTelefon(),myticket.getEpost());
+
+        }
+                /*film, antall, navn, etternavn, telefon, epost*/
+    }
+

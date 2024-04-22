@@ -106,10 +106,10 @@ function updateTable(ticketALL) {
             `<td>${ticket.etternavn}</td>` +
             `<td>${ticket.telefon}</td>` +
             `<td>${ticket.epost}</td>` +
-            `<td><a class='btn btn-primary' href='changeTicket.html?id=${ticket.id}'>Change</a>` +
+            `<td><a class='btn btn-primary' onclick='EditTick(${ticket.id})'>Change</a>` +
             `<button class='btn btn-danger' onclick='slettEN(${ticket.id})'>Delete</button></td>` +
             `</tr>`;
-    }
+    }/*href='changeTicket.html?id=${ticket.id}'>*/
     ut += `</tbody></table>`;
     $('#receipts_js').html(ut);
 }
@@ -136,6 +136,22 @@ function deleteALL_tickets() {
             $('#receipts_js').html(""); // Clears the table
         }
     });
+}
+
+
+function EditTick(){
+    edit_ticket={
+        "id": document.getElementById("tick_id").innerHTML,
+        "film":document.getElementById("edit_choosefilm").value,
+        "ticket":document.getElementById("edit_ticket_numb").value,
+        "navn":document.getElementById("edit_navn_boks").value,
+        "etternavn":document.getElementById("edit_etternavn_boks").value,
+        "telefon":document.getElementById("edit_telefon_boks").value,
+        "epost":document.getElementById("edit_epost_boks").value
+    }
+    console.log(document.getElementById("tick_id").value);
+    console.log(edit_ticket);
+    $.post("http://localhost:8080/updateTick")
 }
 /*function get_a_list_of_receipts_js(){
     $.get("/receipts_js", function(data){
