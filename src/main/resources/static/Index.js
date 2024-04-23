@@ -140,7 +140,7 @@ function deleteALL_tickets() {
 
 
 function EditTick(){
-    edit_ticket={
+    let edit_ticket={
         "id": document.getElementById("tick_id").innerHTML,
         "film":document.getElementById("edit_choosefilm").value,
         "ticket":document.getElementById("edit_ticket_numb").value,
