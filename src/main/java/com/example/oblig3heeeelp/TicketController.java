@@ -20,13 +20,17 @@ public class TicketController {
 
     }
 
-    @PostMapping("/updateTick")
-    public String updateONETick(Ticket myticket){
-        rep.updateONETick(myticket);
-        return "updated";
-
-
+    @GetMapping("/getTicket")
+    public Ticket getTicket(@RequestParam int id) {
+        return rep.findById(id);
     }
+
+    @PostMapping("/updateTicket")
+    public ResponseEntity<?> updateTicket(@RequestBody Ticket ticket) {
+        rep.updateTicket(ticket);
+        return ResponseEntity.ok("Ticket updated successfully");
+    }
+
 
     @GetMapping("/receipts_js")
         public List <Ticket> receipts_js(){

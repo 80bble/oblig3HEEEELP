@@ -106,7 +106,7 @@ function updateTable(ticketALL) {
             `<td>${ticket.etternavn}</td>` +
             `<td>${ticket.telefon}</td>` +
             `<td>${ticket.epost}</td>` +
-            `<td><a class='btn btn-primary' onclick='EditTick(${ticket.id})'>Change</a>` +
+            "<td><a class='btn btn-primary' href='changeTicket.html?id=" + ticket.id + "'>Change</a>" +
             `<button class='btn btn-danger' onclick='slettEN(${ticket.id})'>Delete</button></td>` +
             `</tr>`;
     }/*href='changeTicket.html?id=${ticket.id}'>*/
@@ -140,7 +140,7 @@ function deleteALL_tickets() {
 
 
 function EditTick(){
-    let edit_ticket={
+    edit_ticket={
         "id": document.getElementById("tick_id").innerHTML,
         "film":document.getElementById("edit_choosefilm").value,
         "ticket":document.getElementById("edit_ticket_numb").value,
@@ -154,6 +154,8 @@ function EditTick(){
     $.post("http://localhost:8080/updateTick")
 }
 
+
+/*Fish animation button*/
 function fisk() {
     const iframe = document.getElementById('fishAnimation');
     const audio =document.getElementById('song');
@@ -173,72 +175,3 @@ function fisk() {
 
     }
 }
-/*function get_a_list_of_receipts_js(){
-    $.get("/receipts_js", function(data){
-        let dynamicHtml= "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th><th>Delete</th></tr>";
-        data.forEach(function(ticket){
-            dynamicHtml += `<tr>
-                                <td>${ticket.film}</td>
-                                <td>${ticket.antall}</td>
-                                <td>${ticket.navn}</td>
-                                <td>${ticket.etternavn}</td>
-                                <td>${ticket.telefon}</td>
-                                <td>${ticket.epost}</td>
-                                <td><button onclick="changeTicket(${ticket.id})">Change info</button></td>
-                                <td><button onclick="deleteTicket(${ticket.id})">Delete</button></td>
-                            </tr>`;
-        });
-        dynamicHtml += "</table>";
-        document.getElementById("receipts_js").innerHTML = dynamicHtml;
-    });
-*/
-
-
-            /*let ut = "<table><tr><th>Navn</th><th>Adresse</th></tr>";
-            for (const kunde of kunder){
-                ut+="<tr><td>"+kunde.navn+"</td><td>"+kunde.adresse+"</td></tr>";
-
-            }
-            ut+="</table>";
-            $("#kundene").html(ut);
-
-
-
-
-            */
-
-/* Forrige knapper
-function SendTicketInfo(){
-    myticket = {
-        "film" : document.getElementById("choosefilm").value,
-        "antall": document.getElementById("ticket_numb").value,
-        "navn" : document.getElementById("navn_boks").value,
-        "etternavn" : document.getElementById("etternavn_boks").value,
-        "telefon" : document.getElementById("telefon_boks").value,
-        "epost" : document.getElementById("epost_boks").value
-    }
-    console.log(myticket); //good for debugging in case the elements from student are no
-    $.post("http://localhost:8080/receiveTicketInfo",myticket, function (data){})
-}
-
-function get_a_list_of_receipts(){
-    $.get("http://localhost:8080/receipts", function(data){
-        let dinamicHtml= "<ul>";
-        data.forEach(function(ticket){
-            dinamicHtml +="<li>" + ticket.film + " - " + ticket.antall + " - "
-                + ticket.navn + " - " + ticket.etternavn + " - "
-                + ticket.telefon + " - " + ticket + "</li>"
-        })
-        dinamicHtml+="</ul>"
-        document.getElementById("receiptz").innerHTML = dinamicHtml;
-    })
-
-}
-*/
-/*function get_a_list_of_receipts(){  // same behaviour as the above, but this time we receive an array of students
-    $.get("http://localhost:8080/receipts", function(data){  //this GET call will retrieve from "/students" endpoint a list
-        console.log(data);
-
-    })
-}
-*/

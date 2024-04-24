@@ -4,15 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 /*import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;*/
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.List;
 
 
@@ -45,11 +40,15 @@ public List <Ticket> hentAllInfo(){
         String sql = "DELETE FROM TICKET"; // SQL to delete all rows in TICKET table
         return db.update(sql); // Execute deletion
     }
-    public int updateONETick (Ticket myticket){
-        String sql = "UPDATE myticket SET film = ?, antall = ?, navn= ?, etternavn= ?, telefon= ?, epost = ?";
-        return db.update(sql,myticket.getFilm(),myticket.getNavn(),myticket.getEtternavn(),myticket.getTelefon(),myticket.getEpost());
+    public Ticket findById(int id) {
+        String sql = "SELECT * FROM tickets WHERE id = ?";
+        return db.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(Ticket.class));
+    }
 
-        }
+    public int updateTicket(Ticket ticket) {
+        String sql = "UPDATE tickets SET film = ?, antall = ?, navn = ?, etternavn = ?, telefon = ?, epost = ? WHERE id = ?";
+        return db.update(sql, ticket.getFilm(), ticket.getAntall(), ticket.getNavn(), ticket.getEtternavn(), ticket.getTelefon(), ticket.getEpost(), ticket.getId());
+    }
                 /*film, antall, navn, etternavn, telefon, epost*/
     }
 
