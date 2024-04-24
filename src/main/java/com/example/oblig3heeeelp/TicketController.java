@@ -1,4 +1,4 @@
-package com.example.oblig3heeeelp;
+package com.example.oblig3heeeelp; /*testcoomit*/
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

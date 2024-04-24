@@ -1,4 +1,4 @@
-package com.example.oblig3heeeelp;
+package com.example.oblig3heeeelp; /*testcoomit*/
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 // Function to send ticket information to the server
 function sendTicketInfo_java() {
-    let isValid = true; // A flag to determine if the form is valid
+    let isValid = true; // A flag to determine if the form is valid /*testcoomit*/
 
     const filmSelect = document.getElementById("choosefilm");
     const film = filmSelect.value;

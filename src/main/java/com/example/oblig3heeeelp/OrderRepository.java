@@ -1,4 +1,4 @@
-package com.example.oblig3heeeelp;
+package com.example.oblig3heeeelp; /*testcoomit*/
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Repository
-public class OrderRepository {
+public class OrderRepository { /*testcoomit*/
 
     @Autowired
 private JdbcTemplate db;
