@@ -24,7 +24,7 @@ $(document).ready(function() { /*testcoomit*/
             telefon: $("#telefon").val(),
             epost: $("#epost").val()
         };
-
+console.log("hei!!!")
         $.ajax({
             url: '/updateTicket',
             method: 'POST',
