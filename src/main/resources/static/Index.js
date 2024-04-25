@@ -1,12 +1,12 @@
-// Function to send ticket information to the server
+/*Send ticket information to the server*/
 function sendTicketInfo_java() {
-    let isValid = true; // A flag to determine if the form is valid /*testcoomit*/
+    let isValid = true; // A flag to determine if the form is valid
 
     const filmSelect = document.getElementById("choosefilm");
     const film = filmSelect.value;
     const filmValidationMessage = document.getElementById("filmValidationMessage");
 
-    // Clear previous validation messages
+    /*Clear previous messages*/
     filmValidationMessage.innerText = "";
     document.getElementById("ticket_test").innerText = "";
     document.getElementById("navn_test").innerText = "";
@@ -14,7 +14,7 @@ function sendTicketInfo_java() {
     document.getElementById("telefon_test").innerText = "";
     document.getElementById("epost_test").innerText = "";
 
-    // Check each field and set error messages if necessary
+    /*Error check*/
     if (film === "nullfilm") {
         filmValidationMessage.innerText = "Film ikke valgt";
         isValid = false;
@@ -69,7 +69,7 @@ function sendTicketInfo_java() {
     }
 }
 
-// Function to clear the form
+/*Clear form*/
 function clearForm() {
     document.getElementById("choosefilm").value = "nullfilm";
     document.getElementById("ticket_numb").value = "";
@@ -79,7 +79,7 @@ function clearForm() {
     document.getElementById("epost_boks").value = "";
 }
 
-// Function to fetch and display tickets
+/*Displays tickets*/
 function get_a_list_of_receipts_js() {
     $.get('/receipts_js', function(data) {
         console.log(data);
@@ -92,7 +92,7 @@ function get_a_list_of_receipts_js() {
     });
 }
 
-// Function to update the table with ticket data
+
 function updateTable(ticketALL) {
     let ut = `<table class="table table-striped table-hover">`;
     ut += `<thead class="thead-dark">`;
@@ -114,19 +114,18 @@ function updateTable(ticketALL) {
     $('#receipts_js').html(ut);
 }
 
-// Function to delete a single ticket
+/*Deletes one ticket*/
 function slettEN(id) {
     $.ajax({
         url: "/slettEN?id=" + id,
         type: "DELETE",
         success: function() {
-            console.log('Billett med id ' + id + " ble slettet.");
             $(`#ticket-row-${id}`).remove();
         }
     });
 }
 
-// Function to delete all tickets
+/*Deletes all tickets*/
 function deleteALL_tickets() {
     $.ajax({
         url: "/deleteAllTickets",

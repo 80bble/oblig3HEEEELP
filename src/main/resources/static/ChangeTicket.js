@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() { /*testcoomit*/
     const params = new URLSearchParams(window.location.search);
     const ticketId = params.get('id');

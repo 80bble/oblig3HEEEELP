@@ -6,50 +6,56 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/3.3.1/jquery.min.js"></script>
     <script src="ChangeTicket.js"></script>
+
     <title>Skjema</title>
 
 </head>
 <body>
 <div class="container">
+    <div class="row">
+        <div class="col-md-4">
  <h2>Change ticket info</h2>
     <form class="form">
-        <input type="hidden" id="id"/>
+        <div class="form-group">
+        <input type="text" id="id" hidden/>
+        </div>
 
         <div class="form-group">
         <label for="film">Film</label>
-            <input type="text" id="film">
+            <input type="text" class="form-control" id="film">
         </div>
 
         <div class="form-group">
             <label for="antall">Amount of tickets</label>
-            <input type="number" id="antall">
+            <input type="number" class="form-control"  id="antall">
         </div>
 
         <div class="form-group">
             <label for="navn">Name</label>
-            <input type="text" id="navn">
+            <input type="text" class="form-control"  id="navn">
         </div>
 
         <div class="form-group">
             <label for="etternavn">Surname</label>
-            <input type="text" id="etternavn">
+            <input type="text" class="form-control"  id="etternavn">
         </div>
 
         <div class="form-group">
             <label for="telefon">Phone</label>
-            <input type="number" id="telefon">
+            <input type="number" class="form-control"  id="telefon">
         </div>
 
         <div class="form-group">
             <label for="epost">E-Mail</label>
-            <input type="text" id="epost">
+            <input type="text" class="form-control"  id="epost">
         </div>
         <div class="form-group">
             <input type="button" value="Endre" class="btn btn-primary" onclick="changeOneTicket()"/>
         </div>
     </form>
 </div>
-
+<button class="btn btn primary" onclick="changeTicket()">
 
 </body>
+
 </html>
